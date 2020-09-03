@@ -26,7 +26,7 @@ sudo cp kubectl /usr/local/bin/
 ## copy install-config.yaml to dir
 cp install-config.yaml ocp-dev/
 ./openshift-install create-manifests --dir=./ocp-dev
-vi ocp-dev/manifest/cluster-scheduler-02-config.yml
+sed -i "s/true/false/g" ocp-dev/manifest/cluster-scheduler-02-config.yml
 ./openshift-install create ignition-configs --dir=./ocp-dev
 cp append-bootstrap.ign ocp-dev/append-bootstrap.ign
 cd ocp-dev
